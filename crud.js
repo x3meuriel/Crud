@@ -24,7 +24,7 @@ app.use(cors())
 
 
 
-app.post('/search', (req, res)=>{
+app.post(`${process.env.URL} + /search`, (req, res)=>{
     const {name, email, country} = req.body;
 
     console.log(name, email, country);
@@ -58,7 +58,7 @@ app.post('/search', (req, res)=>{
     }
 })
 
-app.put('/update', (req, res)=>{
+app.put(`${process.env.URL} + /update`, (req, res)=>{
 
     const {name, email, country} = req.body;
     //changing the request tolowercase
@@ -103,7 +103,7 @@ app.put('/update', (req, res)=>{
 })
 
 
-app.post('/insert', (req, res)=>{
+app.post(`${process.env.URL} + /insert`, (req, res)=>{
     const {name, email, country} = req.body;
     // changing requests to lowerCase
     const username = name.toLowerCase();
@@ -133,7 +133,7 @@ app.post('/insert', (req, res)=>{
     }
 })
 
-app.delete('/delete', (req, res)=>{
+app.delete(`${process.env.URL} + /delete`, (req, res)=>{
     const {name, email, country} = req.body;
     // changing requests to lowerCase
     const username = name.toLowerCase();
