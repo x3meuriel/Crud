@@ -6,12 +6,12 @@ const dotenv = require('dotenv').config()
 
 
 const db = knex({
-  client: 'pg',
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-  }
-});
+    client: 'pg',
+    connection: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: true
+    }
+  });
 
 const app = express(); 
 app.use(express.urlencoded({extended: true}))
@@ -24,7 +24,7 @@ app.use(cors())
 
 
 
-app.post(`${process.env.URL} + /search`, (req, res)=>{
+app.post('/search', (req, res)=>{
     const {name, email, country} = req.body;
 
     console.log(name, email, country);
@@ -58,7 +58,7 @@ app.post(`${process.env.URL} + /search`, (req, res)=>{
     }
 })
 
-app.put(`${process.env.URL} + /update`, (req, res)=>{
+app.put('/update', (req, res)=>{
 
     const {name, email, country} = req.body;
     //changing the request tolowercase
@@ -103,7 +103,7 @@ app.put(`${process.env.URL} + /update`, (req, res)=>{
 })
 
 
-app.post(`${process.env.URL} + /insert`, (req, res)=>{
+app.post('/insert', (req, res)=>{
     const {name, email, country} = req.body;
     // changing requests to lowerCase
     const username = name.toLowerCase();
@@ -133,7 +133,7 @@ app.post(`${process.env.URL} + /insert`, (req, res)=>{
     }
 })
 
-app.delete(`${process.env.URL} + /delete`, (req, res)=>{
+app.delete('/delete', (req, res)=>{
     const {name, email, country} = req.body;
     // changing requests to lowerCase
     const username = name.toLowerCase();

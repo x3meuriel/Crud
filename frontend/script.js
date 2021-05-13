@@ -66,7 +66,7 @@ const operation = (method, url, data)=>{
     })
 }
 
-const url = `https://stormy-beyond-96197.herokuapp.com/`
+const url = `https://stormy-beyond-96197.herokuapp.com`
 
 
 search.addEventListener('click', (event)=>{event.preventDefault(); operation('POST', url+"/search", data_req)})
