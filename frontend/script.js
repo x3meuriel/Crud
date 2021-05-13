@@ -21,7 +21,7 @@ const data_req = {
 const addInput = ( event, input)=>{
  
     input.value = event.target.value;
-    console.log(input.value)
+   // console.log(input.value)
 }
 
 
@@ -66,7 +66,7 @@ const operation = (method, url, data)=>{
     })
 }
 
-const url = `http://localhost:4000`
+const url = `https://stormy-beyond-96197.herokuapp.com/`
 
 
 search.addEventListener('click', (event)=>{event.preventDefault(); operation('POST', url+"/search", data_req)})
