@@ -1,0 +1,22 @@
+
+
+input[type = 'submit']{
+    background: green;
+    cursor: pointer;
+    /* display: block; */
+    margin: 5px;
+    color: white;
+}
+
+
+label{
+    display: block;
+}
+
+input[type = 'text'] ,input[type = 'email']{
+    box-shadow: 2px 2px 2px #eee;
+    border-radius: 2px;
+    width: 200px;
+    height: 30px;
+    padding: 2px;
+}

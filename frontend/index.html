@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> crud app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="">
+
+            <fieldset>
+                <legend>Record</legend>
+                <label for="name">Name</label>
+                <input type="text" name = "name" id= "name"  class="inputs">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="inputs">
+
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" class="inputs">
+                <div class="submit">
+                    <!-- <h1 style ="background: green;" id ='search'>Search </div> -->
+                    <input type="submit" value="search" id = "search">
+                    <input type="submit" value="Update" id = 'update'>
+                    <input type="submit" value="Create" id = 'insert'>
+                    <input type="submit" value="Delete" id = 'delete'>
+                </div>
+              
+            </fieldset>
+        </form>
+        <div class="container">
+            <div class="response">
+                <h1>response:&nbsp; <span id= 'response'>  </span> </h1>
+                <p> response:  </p>
+                <div class="data">
+                    <h1 id = 'resp'></h1>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
