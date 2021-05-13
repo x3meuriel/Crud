@@ -1,0 +1,30 @@
+{
+  "name": "zuri-training",
+  "version": "1.0.0",
+  "description": "zuri training exercises",
+  "main": "zuri_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./crud/crud.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x3meuriel/zuri-training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x3meuriel/zuri-training/issues"
+  },
+  "homepage": "https://github.com/x3meuriel/zuri-training#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.5",
+    "nodemailer": "^6.6.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0"
+  }
+}
