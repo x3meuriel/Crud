@@ -6,14 +6,12 @@ const dotenv = require('dotenv').config()
 
 
 const db = knex({
-    client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : 'papacy',
-      database : 'records'
-    }
-  });
+  client: 'pg',
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  }
+});
 
 const app = express(); 
 app.use(express.urlencoded({extended: true}))
