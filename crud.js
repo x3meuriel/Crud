@@ -22,23 +22,8 @@ const db = knex({
       rejectUnauthorized: false
     }
   });
+    
   
-  client.connect();
-  //crreate records table
-  client.query(`CREATE TABLE public.crud_records_tb
-  (
-      name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-      email character varying(100) COLLATE pg_catalog."default" NOT NULL,
-      country character varying(100) COLLATE pg_catalog."default" NOT NULL
-  )`, (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
-    client.end();
-  });
-  
- 
 
 
   
@@ -70,7 +55,7 @@ app.post('/search', (req, res)=>{
     }
     else{
         try{
-            db('crud_records_tb').where({name: username, email: userEmail, country: userCountry}).select('*').then(
+            db('crud_app_tb').where({name: username, email: userEmail, country: userCountry}).select('*').then(
               data =>{
                 if(data[0].name){
                     res.status(200).json({message: 'success', data: data[0]}) }
@@ -101,7 +86,7 @@ app.put('/update', (req, res)=>{
         return res.status(400).json('incomplete data')
     }
     else{
-    db('crud_records_tb')
+    db('crud_app_tb')
         .where('email', '=', userEmail)
         .update({
          name: name,
@@ -145,7 +130,7 @@ app.post('/insert', (req, res)=>{
         return res.status(400).json('incomplete data')
     }
     else{
-        db('crud_records_tb').returning("*").insert({name: username, email: userEmail, country: userCountry}).then(
+        db('crud_app_tb').returning("*").insert({name: username, email: userEmail, country: userCountry}).then(
             data=>{
                  try{
                      if(data[0]){
@@ -175,7 +160,7 @@ app.delete('/delete', (req, res)=>{
         return res.status(400).json('incomplete data')
     }
     else{
-         db('crud_records_tb')
+         db('crud_app_tb')
         .where('email', userEmail)
         .del().then(data=>{
           res.status(200).json({message: "record deleted", data: data})
@@ -185,8 +170,6 @@ app.delete('/delete', (req, res)=>{
         })
     }
 })
-
-
 
 
 
