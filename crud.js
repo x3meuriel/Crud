@@ -13,6 +13,38 @@ const db = knex({
     }
   });
 
+
+  const { Client } = require('pg');
+
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+  
+  client.connect();
+  
+  client.query(`CREATE DATABASE records
+  WITH 
+  OWNER = gghlnlrkucnkmv
+  ENCODING = 'UTF8'
+  LC_COLLATE = 'English_United States.1252'
+  LC_CTYPE = 'English_United States.1252'
+  TABLESPACE = pg_default
+  CONNECTION LIMIT = -1;`, (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    client.end();
+  });
+  
+  
+
+
+  
+
 const app = express(); 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
