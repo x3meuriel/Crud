@@ -25,20 +25,7 @@ const db = knex({
   
   client.connect();
   
-  client.query(`CREATE DATABASE df9hispkmcfq98
-  WITH 
-  OWNER = gghlnlrkucnkmv
-  ENCODING = 'UTF8'
-  LC_COLLATE = 'English_United States.1252'
-  LC_CTYPE = 'English_United States.1252'
-  TABLESPACE = pg_default
-  CONNECTION LIMIT = -1;`, (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
-    client.end();
-  });
+
   
   
 
