@@ -25,7 +25,7 @@ const db = knex({
   
   client.connect();
   
-  client.query(`CREATE DATABASE records
+  client.query(`CREATE DATABASE df9hispkmcfq98
   WITH 
   OWNER = gghlnlrkucnkmv
   ENCODING = 'UTF8'
