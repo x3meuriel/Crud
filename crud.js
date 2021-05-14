@@ -25,9 +25,22 @@ const db = knex({
   
   client.connect();
   
-
+  client.query(`CREATE TABLE public.crud_app_tb
+  (
+      name character varying(100) COLLATE pg_catalog."default" NOT NULL,
+      email character varying(100) COLLATE pg_catalog."default" NOT NULL,
+      country character varying(100) COLLATE pg_catalog."default" NOT NULL
+  )
   
+  TABLESPACE pg_default;`, (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    client.end();
+  });
   
+ 
 
 
   
