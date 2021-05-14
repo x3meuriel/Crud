@@ -24,7 +24,7 @@ const db = knex({
   });
   
   client.connect();
-  
+  //crreate records table
   client.query(`CREATE TABLE public.records
   (
       name character varying(100) COLLATE pg_catalog."default" NOT NULL,
@@ -185,6 +185,8 @@ app.delete('/delete', (req, res)=>{
         })
     }
 })
+
+
 
 
 
