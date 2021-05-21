@@ -45,6 +45,7 @@ app.post('/search', (req, res)=>{
         try{
             db('crud_app_tb').where({name: username, email: userEmail, country: userCountry}).select('*').then(
               data =>{
+                console.log(data)
                 if(data[0].name){
                     res.status(200).json({message: 'success', data: data[0]}) }
                 else{
