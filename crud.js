@@ -5,14 +5,24 @@ const knex = require('knex');
 const dotenv = require('dotenv').config()
 
 
-const db = knex({
+// const db = knex({
+//     client: 'pg',
+//     connection: {
+//       connectionString: process.env.DATABASE_URL,
+//       ssl: true
+//     }
+//   });
+  
+  const db= knex({
     client: 'pg',
+    version: '7.2',
     connection: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: true
+      host : 'ec2-52-21-153-207.compute-1.amazonaws.com',
+      user : 'gghlnlrkucnkmv',
+      password : '52e107ec4b6632e4f1b91f54fca57a3ba28f579a0636ae1915e2be71e60ef89d',
+      database : 'df9hispkmcfq98'
     }
   });
-  
 
   
 
