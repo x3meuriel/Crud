@@ -30,7 +30,7 @@ app.use(cors())
 app.post('/search', (req, res)=>{
     const {name, email, country} = req.body;
 
-    console.log(name, email, country, 'hh');
+    console.log(name, email, country);
 
     // changing request to lowercase
     const username = name.toLowerCase();
@@ -38,14 +38,13 @@ app.post('/search', (req, res)=>{
     const userCountry= country.toLowerCase()
     
     // if request data is incomplete
-    // if(!name && !email && !country){
-    //     return res.status(400).json('incomplete data')
-    // }
-    // else{
-      //  try{
+    if(!name && !email && !country){
+        return res.status(400).json('incomplete data')
+    }
+    else{
+        try{
             db('crud_app_tb').where({name: username, email: userEmail, country: userCountry}).select('*').then(
-              (data) =>{
-                console.log(data)
+              data =>{
                 if(data[0].name){
                     res.status(200).json({message: 'success', data: data[0]}) }
                 else{
@@ -53,14 +52,13 @@ app.post('/search', (req, res)=>{
                 }
               })      
             .catch(err=>{
-              console.log(err)
               res.status(404).json({message: "record not found"})
             })
-     //   }
-        // catch(err){
-        //   res.status(500).json({message: 'error fetching record, try again'})
-        // }    
-    //}
+        }
+        catch(err){
+          res.status(500).json({message: 'error fetching record, try again'})
+        }    
+    }
 })
 
 app.put('/update', (req, res)=>{
