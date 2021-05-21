@@ -38,10 +38,10 @@ app.post('/search', (req, res)=>{
     const userCountry= country.toLowerCase()
     
     // if request data is incomplete
-    if(!name && !email && !country){
-        return res.status(400).json('incomplete data')
-    }
-    else{
+    // if(!name && !email && !country){
+    //     return res.status(400).json('incomplete data')
+    // }
+    // else{
         try{
             db('crud_app_tb').where({name: username, email: userEmail, country: userCountry}).select('*').then(
               data =>{
@@ -58,7 +58,7 @@ app.post('/search', (req, res)=>{
         catch(err){
           res.status(500).json({message: 'error fetching record, try again'})
         }    
-    }
+    //}
 })
 
 app.put('/update', (req, res)=>{
@@ -78,7 +78,7 @@ app.put('/update', (req, res)=>{
         .where('email', '=', userEmail)
         .update({
          name: name,
-        //  email: userEmail,
+         email: userEmail,
          country: country
         }).then(data=>{
             try{
@@ -166,3 +166,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=> {
   console.log(` APP is running on port ${PORT}`) 
 })
+
+
